@@ -1,8 +1,7 @@
-public class carboidratos extends alimento{
+public class carboidrato extends alimento{
 
-    public carboidratos(String n, int vE, int c, int p, int gT, int gS, int fA, int s, int qtd){
-        super(n, vE, c, p, gT, gS, fA, s);
-        baseadoQuantidade = qtd;
+    public carboidrato(String n, float vE, float c, float p, float gT, float gS, float fA, float s, float qtd){
+        super(n, vE, c, p, gT, gS, fA, s, qtd);
         tipo = 1;
     }
 }
