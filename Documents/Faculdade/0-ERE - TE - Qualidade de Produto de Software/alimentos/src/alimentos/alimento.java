@@ -1,14 +1,22 @@
-public class alimento {
+package alimentos;
+
+import java.util.Objects;
+
+public class alimento implements Comparable<alimento>{
     private String nome;
     private float valorEnergetico;
     private float carboidratos;
     private float proteinas;
     private float gordurasTotais;
     private float gordurasSaturadas;
-    private float baseadoQuantidade;
+    private float quantidade;
     private float fibraAlimentar;
     private float sodio;
-    static int tipo;
+    private int tipo;
+
+    public alimento(){
+
+    }
 
     public alimento(String n, float vE, float c, float p, float gT, float gS, float fA, float s, float qtd){
         this.nome = n;
@@ -19,7 +27,7 @@ public class alimento {
         this.gordurasSaturadas = gS;
         this.fibraAlimentar = fA;
         this.sodio = s;
-        this.baseadoQuantidade = qtd;
+        this.quantidade = qtd;
     }
 
     public void setNome(String nome) {
@@ -54,8 +62,12 @@ public class alimento {
         this.sodio = sodio;
     }
 
-    public void setBaseadoQuantidade(float baseadoQuantidade) {
-        this.baseadoQuantidade = baseadoQuantidade;
+    public void setQuantidade(float quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 
     public String getNome() {
@@ -90,7 +102,29 @@ public class alimento {
         return sodio;
     }
 
-    public float getBaseadoQuantidade() {
-        return baseadoQuantidade;
+    public float getQuantidade() {
+        return quantidade;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    @Override
+    public int compareTo(alimento o) {
+        return this.nome.compareTo(o.nome);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof alimento)) return false;
+        alimento alimento = (alimento) o;
+        return getNome().equals(alimento.getNome());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome());
     }
 }
